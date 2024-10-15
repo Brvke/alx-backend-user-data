@@ -9,7 +9,7 @@ PII_FIELDS = ('password', "email", 'ssn', 'ip', 'phone')
 
 
 def get_db() -> mysql.connector.connection.MySQLConnection:
-    """ create a mysql connection using environment variables """
+    """ create a mysql connection using enviroment vairables """
     user = os.environ.get('PERSONAL_DATA_DB_USERNAME', 'root')
     password = os.environ.get('PERSONAL_DATA_DB_PASSWORD', '')
     host = os.environ.get('PERSONAL_DATA_DB_HOST', 'localhost')
@@ -31,7 +31,7 @@ def filter_datum(fields: list, redaction: str,
 
 
 def get_logger() -> logging.Logger:
-    """ a function to return a logging object """
+    """ a function to rturn a logging object """
     logger = logging.getLogger('user_data')
     logger.setLevel(logging.INFO)
     logger.propagate = False
@@ -43,7 +43,7 @@ def get_logger() -> logging.Logger:
 
 
 def main():
-    """ main function to retrieve info from database """
+    """ main function to retrive info from database """
     db = get_db()
     cursor = db.cursor(dictionary=True)
     cursor.execute('SELECT * FROM users;')
